@@ -133,4 +133,47 @@ Vimwiki是Vim中一个私人的wiki--每个链接文本有它们自己的高亮�
 | gl# or gl3              | 在开头添加一个#符号。仅在语法支持时可用                                                                                                                                                                                                                   |
 | gl-                     | 在开头添加一个-符号。仅在语法支持时可用                                                                                                                                                                                                                   |
 | gl1                     | 在开头不加一个1.符号。仅在语法支持时可用                                                                                                                                                                                                                  |
-| gqq or gww                     |                                                                                                                                                                                                                                                           |
+| gqq or gww              | 格式化表格，在更改表格后可通过在插入与正常模式之间切换来格式化表格                                                                                                                                                                                        |
+| <A-Left>                | 移动到当前表格的左边一列<br/>重新定义映射：<br/>:nmap <Leader>wtl <Plug>VimwikiTableMoveColumnLeft                                                                                                                                                        |
+| <A-Right>               | 移动到当前表格的右边一列<br/>重新定义映射：<br/>:nmap <Leader>wtr <Plug>VimwikiTableMoveColumnRight                                                                                                                                                       |
+| <C-Up>                  | 查看前一天日志，若有的话 :VimwikiDiaryPrevDay                                                                                                                                                                                                             |
+| <C-Down>                | 查看后一天日志,若有的话 :VimwikiDiaryNextDay                                                                                                                                                                                                              |
+|                         | 仅当g:vimwiki_use_mouse 设置为1时可工作                                                                                                                                                                                                                   |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <2-LeftMouse>           | 同<CR>                                                                                                                                                                                                                                                    |
+| <S-2-LeftMouse>         | 同<C-CR>                                                                                                                                                                                                                                                  |
+| <C-2-LeftMouse>         | 同<C-S-CR>                                                                                                                                                                                                                                                |
+| <RightMouse><LeftMouse> | 返回上一个wiki页面                                                                                                                                                                                                                                        |
+
+| INSERT MODE(插入模式） | vimwiki-table-mappings                     |
+|------------------------|--------------------------------------------|
+| <CR>                   | 跳到当前单元格下的单元格，若没有则创建一行 |
+| <Tab>                  | 跳到当前单元格后的单元格，若没有则创建一行 |
+
+==== 文本对象 ====
+
+*没搞明白是啥。。。*
+| ah | 包括后面空行的一段（两个连续的标题之间的部分） |
+| ih | 不包括后面空行的一段                           |
+| a\ | 表格内一个单元格                               |
+| i\ | 表格内一个内置单元格                           |
+| ac | 表格内一列                                     |
+| ic | 表格一内置列                                   |
+
+==命令==
+
+==== 全局命令 ====
+
+| :VimwikiIndex            | 打开当前wiki的索引文件                 |
+| :VimwikiTabIndex         | 在一个新的标签中打开当前wiki的索引文件 |
+| :VimwikiUISelect         | 选择wiki并打开索引文件                 |
+| :VimwikiDiaryIndex       | 打开当前wiki的日志索引文件             |
+| :VimwikiMakeDiaryNode    | 打开当前wiki的当天日志文件             |
+| :VimwikiTabMakeDiaryNode | 在一个新的标签中打开当前wiki的当天日志 |
+
+==== 局部命令 ====
+
+| :VimwikiFollow     | 打开一个链接（若需要则创建一个wiki页面） |
+| :VimwikiGoBackLink | 返回上一个wiki页面                       |
+| :VimwikiSplitLink  |                                          |
+	
