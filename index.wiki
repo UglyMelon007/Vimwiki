@@ -1,0 +1,136 @@
+%title UglyMelon007
+%toc
+==简介==
+Vimwiki是Vim中一个私人的wiki--每个链接文本有它们自己的高亮语法。
+
+你可以用Vimwiki来做以下事情：
+	- 整理笔记和想法
+	- 管理任务清单
+	- 写文档
+
+可以通过按<Leader>ww(通常是\ww)快速跳转到你的wiki主页（index页面）。主页默认位置为
+{{{
+	~/vimwiki/index.wiki
+}}}
+
+通过下面的例子来了解它：
+{{{
+*我的知识库*
+	* [[workspace/index|Workspace]] --工作空间
+	* [[diary/diary|Diary]] -- 日记
+	* [[ToDo]] -- 待做事项
+}}}
+*我的知识库*
+	* [[workspace/index|Workspace]] --工作空间
+	* [[diary/diary|Diary]] -- 日记
+	* [[ToDo]] -- 待做事项
+
+==使用前准备==
+
+确定在你的_vimrc文件中有以下设置(没有它们vimwiki将不会正常工作):
+{{{
+	set nocompatible
+	filetype plugin on
+	syntax on
+}}}
+
+==映射==
+
+在vimwiki中有全局映射与局部映射两种
+
+*_<Leader>一般为\_*
+*_<Plug>一般为:_*
+
+====全局映射====
+{{{
+[count]<Leader>ww or <Plug>VimwikiIndex
+	打开第count个索引文件
+	<Leader>ww 打开g:vimwiki_list中的第一个wiki
+	1<Leader>ww 如上，打开g:vimwiki_list中的第一个wiki
+	2<Leader>ww 打开g:vimwiki_list中的第二个wiki
+	etc...
+	重新定义映射：
+	:nmap <Leader>w <Plug>VimwikiIndex
+}}}
+
+{{{
+[count]<Leader>wt or <Plug>VimwikiTabIndex
+	在一个新的标签中打开第count个index文件
+
+	<Leader>wt  在新标签中打开g:vimwiki_list中第一个wiki
+	1<Leader>wt 如上，在新标签中打开g:vimwiki_list中第一个wiki
+	2<Leader>wt 在新标签页中打开g:vimwiki_list中的第二个wiki
+	etc...
+	重新定义映射：
+	:nmap <Leader>t <Plug>VimwikiTabIndex
+}}}
+
+{{{
+<Leader>ws or <Plug>VimwikiUISelect
+	列出并选择可用的wikie
+	重定义映射：
+	:nmap <Leader>wq <Plug>VimwikiUISelect
+}}}
+
+{{{
+[count]<Leader>wi or <Plug>VimwikiDiaryIndex
+	打开第count个wiki的日志索引文件
+	
+	<Leader>wi 打开g:vimwiki_list中第一个wiki的日志索引文件
+	1<Leader>wi 如上
+	2<Leader>wi 打开g:vimwiki_list中第二个wiki的日志索引文件
+	etc...
+	重定义映射：
+	:nmap <Leader>i <Plug>VimwikiDiaryIndex
+}}}
+
+{{{
+[count]<Leader>w<Leader>w or <Plug>VimwikiMakeDiaryNode
+	打开第count个wiki的当前的日志
+	
+	<Leader>w<Leader>w 打开g:vimwiki_list中第一个wiki当天的日志文件
+	1<Leader>w<Leader>w 如上。
+	2<Leader>w<Leader>w 打开g:vimwiki_list中第二个wiki当天的日志文件
+	etc...
+	重定义映射：
+	:nmap <Leader>d <Plug>VimwikiMakeDiaryNote
+}}}
+
+{{{
+[count]<Leader>w<Leader>t or <Plug>VimwikiTabMakeDiaryNote
+	在一个新的标签中打开第count个wiki中当天的日志文件
+
+	<Leader>w<Leader>t 在新标签中打开g:vimwiki_list中第一个wiki的当天日志文件
+	1<Leader>w<Leader>5 如上
+	2<Leader>w<Leader>t 在新标签中打开g:vimwiki_list中第二个wiki的当天日志文件
+	etc...
+	重定义映射：
+	:nmap <Leader>dt <Plug>VimwikiTabMakeDiaryNote
+}}}
+
+====局部映射====
+| Normal Mode（正常模式） | vimwiki-local-mappings                                                                                                                                                                                                                                    |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <Leader>wh              | 将当前wiki页面转换为html页面。 <br/>Maps to :Vimwiki2HTML  <br/>重定义映射： <br/>:nmap <Leader>wc <Plug>Vimwiki2HTML                                                                                                                                     |
+| <Leader>whh             | 将当前wiki页面转换为html页面并在浏览器中打开它。<br/>Maps to :Vimwiki2HTML<br/>重定义映射：<br/>:nmap <Leader>wcc <Plug>Vimwiki2HTMLBrowse                                                                                                                |
+| <Leader>w<Leader>i      | 更新日志主页，仅仅在当前页面为日志主页时方可工作<br/>Maps to :VimwikiDiaryGenerateLinks<br/>重新定义映射：<br/>:nmap <Leader>wcr <Plug>VimwikiDiaryGenerateLinks                                                                                          |
+| <CR>即为Ctrl键          | 打开/创建（如果需要的话）wiki链接<br/>Maps to:<br/>:VimwikiFollowLink<br/>重定义：<br/>:nmap <Leader>wf <Plug>VimwikiFollowLink                                                                                                                           |
+| <S-CR>                  | 在当前页面横向拆分一个窗口来显示当前链接页面（若需要则创建wiki页面）<br/>在某些终端上可能不工作<br/>Maps to<br/>:VimwikiSplitLink<br/>重定义映射<br/>:nmap <Leader>we <Plug>VimwikiSplitLink                                                              |
+| <C-CR>                  | 在当前页面纵向拆分一个窗口来显示当前链接页面（若需要则创建wiki页面）<br/>在某些终端上可能不工作<br/>Maps to<br/>:VimwikiVSplitLink<br/>重定义映射<br/>:nmap <Leader>we <Plug>VimwikiVSplitLink                                                            |
+| <C-S-CR>,<D-CR>         | 在一个新标签中打开一个wiki链接（创建wiki页面如需要）<br/>在某些终端上可能不能工作。<br/>Maps to<br/>:VimwikiTabnewLink<br/>重定义映射<br/>:nmap <Leader>wt <Plug>VimwikiTabnewLink                                                                        |
+| <Backspace>             | 返回上一个wiki页面<br/>Maps to<br/>:VimwikiGoBackLink<br/>重定义映射:<br/>:nmap <Leader>wb <Plug>VimwikiGoBackLink                                                                                                                                        |
+| <Tab>                   | 查找当前页面的下一个链接<br/>Maps to<br/>:VimwikiNextLink<br/>重定义映射：<br/>:nmap <Leader>wn <Plug>VimwikiNextLink                                                                                                                                     |
+| <S-Tab>                 | 查找当前页面的上一个链接<br/>Maps to<br/>:VimwikiPrevLink<br/>重定义映射：<br/>:nmap <Leader>wn <Plug>VimwikiPrevLink                                                                                                                                     |
+| <Leader>wd              | 删除当前wiki页面<br/>Maps to<br/>:VimwikiDeleteLink<br/>重定义映射：<br/>:nmap <Leader>dd <Plug>VimwikiDeleteLink                                                                                                                                         |
+| <Leader>wr              | 重命名当前wiki页面<br/>Maps to<br/>:VimwikiRenameLink<br/>重新定义映射：<br/>:nmap <Leader>rr <Plug》VimwikiRenameLink                                                                                                                                    |
+| <C-Space>               | 选择或不选择列表项目<br/>Maps to<br/>:VimwikiToggleListItem<br/>重新定义映射：<br/>:nmap <Leader>tt <Plug>VimwikiToggleListItem                                                                                                                           |
+| =                       | 提升标题等级若不是标题则变为标题<br/>重新定义映射：<br/>:nmap == <Plug>VimwikiAddHeaderLevel                                                                                                                                                              |
+| -                       | 降低标题等级<br/>重新定义映射：<br/>nmap -- <Plug>VimwikiRemoveHeaderLevel                                                                                                                                                                                |
+| +                       | 创建一个链接或为一个链接添加名字。<br>根据语境不同，这个命令将会：<br/>    为文件加上wiki链接;<br/>将URLS转换为wiki链接;<br/>为wiki加上占位符文本或者为weblinks添加缺少的描述。<br/>正常模式下作用于光标所在的单词或链接。<br/>视图模式下作用于选择的文本 |
+| glm                     | 增加缩进，并使其成为一个列表                                                                                                                                                                                                                              |
+| gll                     | 减少缩进，最少减为一个，当为一个时继续则可使其变成非列表项                                                                                                                                                                                                |
+| gl* or gl8              | 在开头添加一个*符号。仅在语法支持时可用                                                                                                                                                                                                                   |
+| gl# or gl3              | 在开头添加一个#符号。仅在语法支持时可用                                                                                                                                                                                                                   |
+| gl-                     | 在开头添加一个-符号。仅在语法支持时可用                                                                                                                                                                                                                   |
+| gl1                     | 在开头不加一个1.符号。仅在语法支持时可用                                                                                                                                                                                                                  |
+| gqq or gww                     |                                                                                                                                                                                                                                                           |
