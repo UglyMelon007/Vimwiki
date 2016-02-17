@@ -1,4 +1,4 @@
-%title [[UglyMelon007]]
+%title UglyMelon007
 =待做事项=
 2016-2-4 晚上任务：
 * [X] 目录索引改进
