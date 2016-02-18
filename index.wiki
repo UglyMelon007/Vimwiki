@@ -16,12 +16,12 @@ Vimwiki是Vim中一个私人的wiki--每个链接文本有它们自己的高亮�
 通过下面的例子来了解它：
 {{{
 *我的知识库*
-	* [[workspace/index|Workspace]] --工作空间
+	* [[workspace/Workspace|workspace]] --工作空间
 	* [[diary/diary|Diary]] -- 日记
 	* [[ToDo]] -- 待做事项
 }}}
 *我的知识库*
-	* [[workspace/index|Workspace]] --工作空间
+	* [[workspace/Workspace|workspace]] --工作空间
 	* [[diary/diary|Diary]] -- 日记
 	* [[ToDo]] -- 待做事项
 
@@ -188,4 +188,5 @@ Vimwiki是Vim中一个私人的wiki--每个链接文本有它们自己的高亮�
 | :VimwikiAll2HTML                              | 将所有wiki页面转换为html页面（若wiki已转换，则不会更新建议删除已转换的html页面重新执行此操作<br/>若默认的css文件（style.css)不存在则创建 |
 | :VimwikiToggleListItem                        | 打开关闭列表项目（选中或取消选中）                                                                                                       |
 | :VimwikiListChangeLevel CMD                   | 改变当前列表行的嵌套级别或符号<br/>CMD可以是">>"或者"<<"来改变这个项目的缩进,或者"*","#","1.","-"这几个特殊的项目符号中的一个            |
-| :VimwikiSearch /pattern/  <br/>:VWS /pattern/ |                                                                                                                                          |
+| :VimwikiSearch /pattern/  <br/>:VWS /pattern/ | 在当前wiki的所有文件内查找pattern<br/>使用:lopen命令显示所有匹配<br/>使用:lnext命令显示下一个匹配<br/>使用:lprevious命令显示上一个匹配   |
+| :VimwikiBacklinks<br/>:VWB                    |                                                                                                                                          |
