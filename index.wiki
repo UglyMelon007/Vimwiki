@@ -16,12 +16,12 @@ Vimwiki是Vim中一个私人的wiki--每个链接文本有它们自己的高亮�
 通过下面的例子来了解它：
 {{{
 *我的知识库*
-	* [[workspace/Workspace|workspace]] --工作空间
+	* [[workspace/workspace|workspace]] --工作空间
 	* [[diary/diary|Diary]] -- 日记
 	* [[ToDo]] -- 待做事项
 }}}
 *我的知识库*
-	* [[workspace/Workspace|workspace]] --工作空间
+	*[[workspace/workspace|workspace]]
 	* [[diary/diary|Diary]] -- 日记
 	* [[ToDo]] -- 待做事项
 
