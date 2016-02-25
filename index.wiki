@@ -391,6 +391,8 @@ Term 2::
 {{{
 $ \sum_i a_i^2 = 1 $ 
 }}}
+效果：<br/>
+$ \sum_i a_i^2 = 1 $<br/>
 块显示是创建一个前后有间隙的居中的公式。它必须以`{{&`为开头，以`}}$`为结束，并且它们都为单独的一行并且不包含其它内容。<br/>
 例如:
 {{{
@@ -400,3 +402,52 @@ $ \sum_i a_i^2 = 1 $
 1
  }}$
 }}}
+效果：<br/>
+ {{$
+\sum_i a_i^2
+=
+1
+ }}$
+<br/>
+环境块与块显示有点像，但是它可以使用特殊的环境参数，例如'align'。它的语法和块显示相似，除了第一行是{{$%environment%<br/>
+例如：
+{{{
+{{$%align%
+\sum_i a_i^2 &= 1 + 1 \\
+&= 2.
+}}$
+}}}
+效果：<br/>
+{{$%align%
+\sum_i a_i^2 &= 1 + 1 \\
+&= 2.
+}}$
+<br/>
+*这个高亮是VIM的自动转换的。如果需要HTML渲染，你有两种办法：*
+# 使用MathJax网络版来渲染（需要有网）<br/>在你的HTML模板中加入下面这行<br/> `<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>`
+# 安装MathJax本地版（这种方法更快，并且不需要网络连接本地存放路径 _E:\ChaoData\Programming\JavaScript\MathJax-master.zip_ ）。将MathJax放进指定目录。并在你的HTML模板中加入下面这行：<br/>`<script type="text/javascript" src="<mathjax_folder>/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>`<br/>mathjax_folder是你硬盘的目录，是MathJax文件所在文件夹相对路径
+<br/>
+=== 块引用 ===
+<br/>
+文本以4个或更多个空格开始为一个块引用
+{{{
+    这是一个块引用。它在Vim不是高亮的但是在HTML中有相应的css样式。块引用通常被用来引用其他文件的一长块文本
+}}}
+效果：<br/>
+    这是一个块引用。它在Vim不是高亮的但是在HTML中有相应的css样式。块引用通常被用来引用其他文件的一长块文本
+<br/>
+=== 注释 ===
+<br/>
+以%%作为行开始的是一个注释
+例如：
+%% 这个文本将不在HTML中显示
+<br/>
+水平线
+<br/>
+以4个或更多破折号开始的行为一个水平线（`<hr/>`)
+`----` 
+<br/>
+=== 方案 ===
+<br/>
+除了标准的web方案外(e.g. http:, https:, ftp:, etc.),一些特殊的方案也被支持："wiki#:", "local:", "diary:", "file:"，和schemeless.
+
