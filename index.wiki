@@ -534,6 +534,7 @@ Wiki-include链接可以使用任何被支持的方案，可以是绝对和相�
 <a href="http://someaddr.com/ ... /.jpg">
 <img src="http://../thumbnail.jpg /></a>
 }}}
+<hr/>
 <br/>
 = 折叠大纲,,(仅vimwiki中可用),, =
 <br/>
@@ -552,13 +553,14 @@ Vimwiki使用标题和预定义块可以折叠或展开内容。<br/>
   * [ ] Do stuff 3
 折叠命令：zM zm或zC zc 展开命令：zR zr或zO zo
 }}}
+<hr/>
 <br/>
 = 占位符 =
 <br/>
-*%toc*<br/>
+*%t o c*<br/>
 你可以添加一个从wiki中生成内容目录在你的HTML页面中。
 {{{
-%toc 标题可以是任意文字
+%t o c 标题可以是任意文字
 }}}
 *%title*<br/>
 对于从wiki页面转过来的html，它默认的名称是这个文件的文件名。
@@ -568,4 +570,54 @@ Vimwiki使用标题和预定义块可以折叠或展开内容。<br/>
 *%nohtml*<br/>
 如果你不想将一个wiki页面转换为html页面，可以在它里面放入`%nohtml`<br/>
 *%template*
-为一个wiki页面应用一个具体的HTML模板，在其内放入`%template name`
+为一个wiki页面应用一个具体的HTML模板，在其内放入`%template name`<br/>
+<hr/>
+<br/>
+= 任务清单 =
+<br/>
+你可以有一个任务列表--列表内的项目你可以选择或不选择<br/>
+思考下面的例子：
+{{{
+按\tt(我设置的快捷键是这个，默认为C+Space）来选择或取消选择
+= Toggleable list of todo items =
+  * [X] Toggle list item on/off.
+    * [X] Simple toggling between [ ] and [X].
+    * [X] All list's subitems should be toggled on/off appropriately.
+    * [X] Toggle child subitems only if current line is list item
+    * [X] Parent list item should be toggled depending on it's child items.
+  * [X] Make numbered list items toggleable too
+  * [X] Add highlighting to list item boxes
+  * [X] Add [ ] to the next created with o, O and <CR> list item.
+}}}
+当子项目改变时，父项目可以被改变。[ ]之间的符号取决于子项目的选择数量(默认有" .oOX"五个符号)。
+列表项目缩进和项目符号可以可以使用几个映射下操作。下边的的例子演示了默认的语法行为当`vimwiki-option-list_margin=1`
+     | Mapping | Input      | Output       |
+     |---------|------------|--------------|
+     | glm     | ^item      | ^ - iatem    |
+     | glm     | ^     item | ^     - item |
+     | gll     | ^ - item   | ^item        |
+     | glm     | ^   # item | ^   item     |
+     | gl*     | ^ item     | ^ * item     |
+     | gl-     | ^  item    | ^  - item    |
+     | gl3     | ^   item   | ^   # itaem  |
+<hr/>
+<br/>
+= 表格 =
+<br/>
+使用 `:VimwikiTable`命令创建一个两行五列的默认表格<br/>
+当你按`<TAB>`,`<CR>`或者离开插入模式时，表格就会自动格式化<br/>
+你只需要按`<TAB>`并且写入新值就可以非常容易的创建一个漂亮的文本表格<br/>
+<hr/>
+<br/>
+= 日志 =
+<br/>
+日志可以帮助你写日常笔记。在vimwiki中你可以非常容易的添加一些有先后顺序的信息。只需要`\w\w`就可以创建一个以当前日期为名字的日志。<br/>
+可以使用`\w\i`生成所有日记链接。(*它仅可以在日志index文件中使用*)<br/>
+<br/>
+=== 集成日志 ===
+<br/>
+你可以安装Calendar.vim来管理你的日志。(,,发现它用来补日记挺好使的,,)<br/>
+<br/>
+= 选项 =
+<br/>
+这有一些全局与局部选项来谐调vimwiki.<br/>
