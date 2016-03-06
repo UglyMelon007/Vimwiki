@@ -178,29 +178,29 @@ Vimwiki是Vim中一个私人的wiki--每个链接文本有它们自己的高亮�
 <br/>
 === 局部命令 ===
 <br/>
-| :VimwikiFollow                                          | 打开一个链接（若需要则创建一个wiki页面）                                                                                                                            |
-| :VimwikiGoBackLink                                      | 返回上一个wiki页面）                                                                                                                                                |
-| :VimwikiSplitLink                                       | 横向打开一个链接（若需要则创建一个wiki页面 ）                                                                                                                       |
-| :VimwikiVSplitLink                                      | 纵向打开一个链接（若需要则创建一个wiki页面）                                                                                                                        |
-| :VimwikiTabnewLink                                      | 在一个新的标签中打开一个链接（若需要则创建一个wiki页面）                                                                                                            |
-| :VimwikiNextLink                                        | 查找当前页面的下一个链接                                                                                                                                            |
-| :VimwikiPrevLink                                        | 查找当前页面的上一个链接                                                                                                                                            |
-| :VimwikiGoto                                            | 转到（打开）与参数相对应的链接.例如：<br/>:VimwikiGoto ToDo<br/> 打开或创建打开ToDowiki页面                                                                         |
-| :VimwikiDeleteLink                                      | 删除当前wiki页面                                                                                                                                                    |
-| :VimwikiRenameLink                                      | 重命名当前wiki页面                                                                                                                                                  |
-| :Vimwiki2HTML                                           | 使用vimwiki自带的转换器或用户自定义的脚本将当前页面转换为HTML                                                                                                       |
-| :Vimwiki2HTMLBrowse                                     | 将当前页面转换为html页面并在浏览器上打开它                                                                                                                          |
-| :VimwikiAll2HTML                                        | 将所有wiki页面转换为html页面（若wiki已转换，则不会更新建议删除已转换的html页面重新执行此操作<br/>若默认的css文件（style.css)不存在则创建                            |
-| :VimwikiToggleListItem                                  | 打开关闭列表项目（选中或取消选中）                                                                                                                                  |
-| :VimwikiListChangeLevel CMD                             | 改变当前列表行的嵌套级别或符号<br/>CMD可以是">>"或者"<<"来改变这个项目的缩进,或者"*","#","1.","-"这几个特殊的项目符号中的一个                                       |
-| :VimwikiSearch /pattern/  <br/>:VWS /pattern/           | 在当前wiki的所有文件内查找pattern<br/>使用:lopen命令显示所有匹配<br/>使用:lnext命令显示下一个匹配<br/>使用:lprevious命令显示上一个匹配                              |
-| :VimwikiBacklinks<br/>:VWB                              | 在当前的wiki的所胡文件内查找wiki链接并显示在当前的wiki页面内。<br/>使用:lopen命令显示所有匹配<br/>使用:lnext命令显示下一个匹配<br/>使用:lprevious命令显示上一个匹配 |
-| :VimwikiTable                                           | 创建一个五列两行的表格<br/>:VimwikiTable cols rows 使用指定的行数列数创建一个表格<br/>:VimwikiTable cols 使用指定的列数创建一个两行N列的表格                        |
-| :VimwikiTableMoveColunLeft,:VimwikiTableMoveColumnRight | 将当前列移动右边或左边<br/>命令被分别映射为A-Left和A-Right                                                                                                          |
-| :VimwikiGenerateLinks                                   | 将可用的链接插入当前缓冲内(会在页面底部生成相应内容)                                                                                                                |
-| :VimwikiDiaryGenerateLinks                              | 删除旧的目录，插入新的日志目录在日志index文件内（此命令只在日志index页面可用）\w\i                                                                                  |
-| :VimwikiDiaryNextDay                                    | 转到下一天的日志若有的话<br/>映射为C-Down                                                                                                                           |
-| :VimwikiDiaryPrevDay                                    | 转到上一天的日志若有的话<br/>映射为C-Up                                                                                                                             |
+| :VimwikiFollow                                              | 打开一个链接（若需要则创建一个wiki页面）                                                                                                                            |
+| :VimwikiGoBackLink                                          | 返回上一个wiki页面）                                                                                                                                                |
+| :VimwikiSplitLink                                           | 横向打开一个链接（若需要则创建一个wiki页面 ）                                                                                                                       |
+| :VimwikiVSplitLink                                          | 纵向打开一个链接（若需要则创建一个wiki页面）                                                                                                                        |
+| :VimwikiTabnewLink                                          | 在一个新的标签中打开一个链接（若需要则创建一个wiki页面）                                                                                                            |
+| :VimwikiNextLink                                            | 查找当前页面的下一个链接                                                                                                                                            |
+| :VimwikiPrevLink                                            | 查找当前页面的上一个链接                                                                                                                                            |
+| :VimwikiGoto                                                | 转到（打开）与参数相对应的链接.例如：<br/>:VimwikiGoto ToDo<br/> 打开或创建打开ToDowiki页面                                                                         |
+| :VimwikiDeleteLink                                          | 删除当前wiki页面                                                                                                                                                    |
+| :VimwikiRenameLink                                          | 重命名当前wiki页面                                                                                                                                                  |
+| :Vimwiki2HTML                                               | 使用vimwiki自带的转换器或用户自定义的脚本将当前页面转换为HTML                                                                                                       |
+| :Vimwiki2HTMLBrowse                                         | 将当前页面转换为html页面并在浏览器上打开它                                                                                                                          |
+| :VimwikiAll2HTML                                            | 将所有wiki页面转换为html页面（若wiki已转换，则不会更新建议删除已转换的html页面重新执行此操作<br/>若默认的css文件（style.css)不存在则创建                            |
+| :VimwikiToggleListItem                                      | 打开关闭列表项目（选中或取消选中）                                                                                                                                  |
+| :VimwikiListChangeLevel CMD                                 | 改变当前列表行的嵌套级别或符号<br/>CMD可以是">>"或者"<<"来改变这个项目的缩进,或者"*","#","1.","-"这几个特殊的项目符号中的一个                                       |
+| :VimwikiSearch /pattern/  <br/>:VWS /pattern/               | 在当前wiki的所有文件内查找pattern<br/>使用:lopen命令显示所有匹配<br/>使用:lnext命令显示下一个匹配<br/>使用:lprevious命令显示上一个匹配                              |
+| :VimwikiBacklinks<br/>:VWB                                  | 在当前的wiki的所胡文件内查找wiki链接并显示在当前的wiki页面内。<br/>使用:lopen命令显示所有匹配<br/>使用:lnext命令显示下一个匹配<br/>使用:lprevious命令显示上一个匹配 |
+| :VimwikiTable                                               | 创建一个五列两行的表格<br/>:VimwikiTable cols rows 使用指定的行数列数创建一个表格<br/>:VimwikiTable cols 使用指定的列数创建一个两行N列的表格                        |
+| :VimwikiTableMoveColunLeft<br/>:VimwikiTableMoveColumnRight | 将当前列移动右边或左边<br/>命令被分别映射为A-Left和A-Right                                                                                                          |
+| :VimwikiGenerateLinks                                       | 将可用的链接插入当前缓冲内(会在页面底部生成相应内容)                                                                                                                |
+| :VimwikiDiaryGenerateLinks                                  | 删除旧的目录，插入新的日志目录在日志index文件内（此命令只在日志index页面可用）\w\i                                                                                  |
+| :VimwikiDiaryNextDay                                        | 转到下一天的日志若有的话<br/>映射为C-Down                                                                                                                           |
+| :VimwikiDiaryPrevDay                                        | 转到上一天的日志若有的话<br/>映射为C-Up                                                                                                                             |
 <hr/>
 <br/>
 = Wiki语法 =
